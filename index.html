@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sapiens · 人类简史 — From Animals into Gods</title>
+
+<!-- SEO · GEO -->
+<meta name="description" content="A bilingual interactive companion to Yuval Noah Harari's Sapiens (人类简史): how an insignificant animal conquered the world through shared fictions, across the Cognitive, Agricultural, Unifying, and Scientific revolutions — and became a god that doesn't know what it wants.">
+<meta name="keywords" content="Sapiens, 人类简史, Yuval Noah Harari, 尤瓦尔·赫拉利, A Brief History of Humankind, 从动物到上帝, cognitive revolution, 认知革命, agricultural revolution, 农业革命, imagined order, shared fiction, 想象的秩序, money empire religion, scientific revolution">
+<meta name="author" content="Gewenbo">
+<link rel="canonical" href="https://sapiens.psyverse.fun/">
+<link rel="alternate" hreflang="en" href="https://sapiens.psyverse.fun/">
+<link rel="alternate" hreflang="zh-CN" href="https://sapiens.psyverse.fun/">
+<link rel="alternate" hreflang="x-default" href="https://sapiens.psyverse.fun/">
+<meta property="og:title" content="Sapiens · 人类简史">
+<meta property="og:description" content="How an insignificant animal conquered the world through shared fictions — and became a god that doesn't know what it wants. A bilingual companion to Harari's Sapiens.">
+<meta property="og:url" content="https://sapiens.psyverse.fun/">
+<meta property="og:site_name" content="Psyverse">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sapiens · 人类简史 — From Animals into Gods">
+<meta name="twitter:description" content="The four revolutions, the power of fiction, and the animal that became a god. A bilingual interactive reading of Harari's Sapiens.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0d0b09">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Sapiens · 人类简史 — An Interactive Companion",
+  "description": "A bilingual, transformative interactive companion to Yuval Noah Harari's Sapiens: A Brief History of Humankind.",
+  "url": "https://sapiens.psyverse.fun/",
+  "inLanguage": ["en", "zh-CN"],
+  "about": { "@type": "Book", "name": "Sapiens: A Brief History of Humankind", "alternateName": "人类简史：从动物到上帝", "author": { "@type": "Person", "name": "Yuval Noah Harari" } },
+  "author": { "@type": "Person", "name": "Gewenbo", "url": "https://psyverse.fun/" },
+  "publisher": { "@type": "Organization", "name": "Psyverse", "url": "https://psyverse.fun/" }
+}
+</script>
+<!-- /SEO · GEO -->
+
+<!-- Analytics -->
+<script src="https://analytics-dashboard-two-blue.vercel.app/tracker.js" defer></script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230d0b09'/><path d='M9 23c0-7 2-12 7-12s7 5 7 12' fill='none' stroke='%23cf7a3c' stroke-width='1.6' stroke-linecap='round'/><circle cx='16' cy='9' r='2.4' fill='%23d8a850'/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Space+Mono:wght@400;700&family=Noto+Serif+SC:wght@400;600;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#0d0b09; --panel:#15110d; --panel2:#1c1711;
+  --line:rgba(240,232,218,.12); --line2:rgba(240,232,218,.06);
+  --bone:#f0e8da; --dim:#a89a85; --faint:#6f6557;
+  --ochre:#d4814a; --gold:#d8a850; --clay:#bb5638; --sage:#9aa46a; --steel:#6fb0c8; --violet:#a692d8;
+  --maxw:1140px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--bone);font-family:"Spectral",Georgia,serif;font-size:18px;line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lang-zh{font-family:"Noto Serif SC","Spectral",serif}
+::selection{background:rgba(212,129,74,.32);color:#fff}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+.lang-en .zh-only{display:none}
+.lang-zh .en-only{display:none}
+.mono{font-family:"Space Mono",monospace}
+.cinzel{font-family:"Cinzel",serif;letter-spacing:.04em}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(16px,4vw,40px);background:linear-gradient(180deg,rgba(13,11,9,.92),rgba(13,11,9,0));backdrop-filter:blur(8px);transition:top .3s}
+nav.scrolled{background:rgba(13,11,9,.92);border-bottom:1px solid var(--line2)}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Cinzel",serif;font-weight:700;letter-spacing:.12em;font-size:15px}
+.brand svg{width:24px;height:24px;flex:none}
+.brand .sub{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.04em;color:var(--dim);font-weight:400}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);transition:color .2s}
+.nav-links a:hover{color:var(--ochre)}
+.langtog{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.05em;border:1px solid var(--line);background:transparent;color:var(--bone);padding:7px 13px;border-radius:30px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.langtog:hover{border-color:var(--ochre);color:var(--ochre)}
+@media(max-width:900px){.nav-links{display:none}}
+
+section{position:relative;padding:clamp(74px,11vh,140px) clamp(16px,5vw,40px)}
+.wrap{max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.eyebrow{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ochre);margin-bottom:18px}
+.eyebrow .n{color:var(--faint)}
+h2.title{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(30px,5.2vw,58px);line-height:1.05;letter-spacing:-.02em;margin-bottom:22px}
+body.lang-zh h2.title{font-family:"Noto Serif SC",serif;letter-spacing:0}
+.lede{font-size:clamp(18px,2.2vw,22px);color:#ddd3c2;max-width:780px;line-height:1.66}
+.lede em{color:var(--gold);font-style:italic}
+.divider{height:1px;background:var(--line);max-width:var(--maxw);margin:0 auto}
+
+/* hero */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:96px;overflow:hidden}
+#deeptime{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+#hero::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(120% 80% at 50% 18%,transparent 40%,rgba(13,11,9,.55) 100%);pointer-events:none}
+#hero .wrap{max-width:1000px}
+.hero-kick{font-family:"Space Mono",monospace;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ochre);margin-bottom:26px}
+.hero-title{font-family:"Cinzel",serif;font-weight:900;font-size:clamp(60px,16vw,184px);line-height:.9;letter-spacing:.02em;margin-bottom:14px}
+body.lang-zh .hero-title{font-family:"Noto Serif SC",serif;font-weight:900;font-size:clamp(54px,15vw,160px);letter-spacing:.02em}
+.hero-title .arc{background:linear-gradient(100deg,var(--clay),var(--ochre) 38%,var(--gold) 64%,var(--steel));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-alt{font-family:"Space Mono",monospace;color:var(--dim);font-size:clamp(13px,2vw,17px);letter-spacing:.16em;margin-bottom:30px;text-transform:uppercase}
+.hero-lede{font-size:clamp(19px,2.5vw,26px);max-width:700px;color:#e3d9c8;line-height:1.55;margin-bottom:18px}
+.hero-lede b{color:var(--gold);font-weight:500}
+.hero-by{color:var(--dim);font-size:15px;font-style:italic;margin-bottom:36px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-family:"Space Mono",monospace;font-size:13px;letter-spacing:.06em;padding:14px 24px;border-radius:34px;cursor:pointer;transition:all .25s;border:1px solid var(--line);background:transparent;color:var(--bone)}
+.btn.primary{background:var(--ochre);color:#1c0f06;border-color:var(--ochre);font-weight:700}
+.btn.primary:hover{box-shadow:0 0 32px rgba(212,129,74,.45);transform:translateY(-2px)}
+.btn:hover{border-color:var(--ochre);color:var(--ochre)}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.2em;color:var(--faint);z-index:3;text-transform:uppercase}
+.scroll-hint::after{content:"";display:block;width:1px;height:32px;background:linear-gradient(var(--ochre),transparent);margin:10px auto 0}
+
+/* thesis */
+#thesis{background:var(--panel)}
+.thesis-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media(max-width:880px){.thesis-grid{grid-template-columns:1fr;gap:36px}}
+.pull{font-family:"Fraunces",serif;font-style:italic;font-size:clamp(24px,3.4vw,40px);line-height:1.28;color:var(--bone)}
+body.lang-zh .pull{font-family:"Noto Serif SC",serif;font-style:normal;font-weight:600}
+.pull .hl{color:var(--gold)}
+.thesis-body p{margin-bottom:18px;color:#d2c8b7}
+.thesis-body p:last-child{margin-bottom:0}
+.thesis-body .src{font-family:"Space Mono",monospace;font-size:12px;color:var(--faint);letter-spacing:.04em}
+
+/* four revolutions */
+#revolutions{background:var(--ink)}
+.rev-rail{display:flex;gap:0;overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:38px 0 30px;scrollbar-width:thin}
+.rev-tab{flex:1;min-width:140px;padding:18px 16px;cursor:pointer;border-right:1px solid var(--line2);transition:background .25s;position:relative;text-align:left}
+.rev-tab:last-child{border-right:none}
+.rev-tab:hover{background:var(--panel)}
+.rev-tab.active{background:var(--panel2)}
+.rev-tab.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--c,var(--ochre))}
+.rev-tab .when{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.04em;color:var(--faint);margin-bottom:9px;white-space:nowrap}
+.rev-tab .rt{font-family:"Fraunces",serif;font-weight:600;font-size:18px;line-height:1.12;color:var(--dim);transition:color .25s}
+body.lang-zh .rev-tab .rt{font-family:"Noto Serif SC",serif}
+.rev-tab.active .rt{color:var(--c,var(--ochre))}
+.rev-tab .dot{width:8px;height:8px;border-radius:50%;background:var(--c,var(--ochre));margin-bottom:12px;opacity:.4;transition:opacity .25s}
+.rev-tab.active .dot{opacity:1;box-shadow:0 0 12px var(--c,var(--ochre))}
+.rev-panel{display:grid;grid-template-columns:1fr;gap:6px;min-height:200px;padding:8px 4px}
+.rev-panel h3{font-family:"Fraunces",serif;font-size:clamp(26px,4vw,42px);font-weight:900;letter-spacing:-.02em;margin-bottom:4px;color:var(--c,var(--ochre))}
+body.lang-zh .rev-panel h3{font-family:"Noto Serif SC",serif}
+.rev-panel .when2{font-family:"Space Mono",monospace;font-size:12px;color:var(--dim);letter-spacing:.05em;margin-bottom:20px}
+.rev-panel p{color:#d2c8b7;margin-bottom:16px;max-width:720px}
+.rev-meta{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:18px}
+@media(max-width:680px){.rev-meta{grid-template-columns:1fr}}
+.rev-meta .k{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.rev-meta .idea .k{color:var(--gold)} .rev-meta .cost .k{color:var(--clay)}
+.rev-meta .v{font-size:15.5px;color:#c9bfae;line-height:1.55}
+
+/* fiction lab */
+#fiction{background:var(--panel)}
+.lab{border:1px solid var(--line);border-radius:16px;background:var(--panel2);padding:clamp(20px,3vw,34px);margin-top:36px}
+.lab-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.lab-head h3{font-family:"Fraunces",serif;font-weight:600;font-size:22px}
+body.lang-zh .lab-head h3{font-family:"Noto Serif SC",serif}
+.lab-head .tag{font-family:"Space Mono",monospace;font-size:11px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase}
+.lab p.exp{font-size:15px;color:#c9bfae;margin-bottom:20px;max-width:720px}
+.scaler{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:stretch}
+@media(max-width:680px){.scaler{grid-template-columns:1fr}}
+.scaler-steps{display:flex;flex-direction:column;gap:8px}
+.sstep{padding:13px 15px;border:1px solid var(--line);border-radius:10px;cursor:pointer;transition:all .2s}
+.sstep:hover{border-color:var(--ochre)}
+.sstep.active{background:var(--c,var(--ochre));border-color:var(--c,var(--ochre));color:#1c0f06}
+.sstep .sn{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.04em;opacity:.7}
+.sstep .sl{font-family:"Fraunces",serif;font-weight:600;font-size:16px;margin-top:2px}
+body.lang-zh .sstep .sl{font-family:"Noto Serif SC",serif}
+.sstep.active .sl{color:#1c0f06}
+.scaler-view{border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,#0f0c08,#15110d);padding:18px;position:relative;min-height:230px;display:flex;flex-direction:column}
+.scaler-num{font-family:"Cinzel",serif;font-weight:900;font-size:clamp(28px,5vw,46px);color:var(--c,var(--ochre));line-height:1}
+.scaler-cap{font-size:14.5px;color:#c9bfae;margin:6px 0 12px;max-width:560px}
+#dotfield{flex:1;display:block;width:100%;border-radius:8px}
+
+/* real vs fiction */
+.rvf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px}
+@media(max-width:760px){.rvf-grid{grid-template-columns:repeat(2,1fr)}}
+.rvf{border:1px solid var(--line);border-radius:12px;padding:18px 16px;text-align:center;cursor:pointer;transition:all .2s;background:var(--panel)}
+.rvf:hover{transform:translateY(-3px)}
+.rvf .ico{font-size:30px;margin-bottom:8px;line-height:1}
+.rvf .rn{font-family:"Fraunces",serif;font-weight:600;font-size:16px;margin-bottom:2px}
+body.lang-zh .rvf .rn{font-family:"Noto Serif SC",serif}
+.rvf .verdict{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.05em;margin-top:8px;min-height:14px;opacity:0;transition:opacity .3s}
+.rvf.revealed .verdict{opacity:1}
+.rvf.real{border-color:var(--steel)} .rvf.real .verdict{color:var(--steel)}
+.rvf.fiction{border-color:var(--gold)} .rvf.fiction .verdict{color:var(--gold)}
+.rvf-hint{font-family:"Space Mono",monospace;font-size:12px;color:var(--dim);margin-top:16px;text-align:center}
+
+/* unifiers */
+#unifiers{background:var(--ink)}
+.uni-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+@media(max-width:820px){.uni-grid{grid-template-columns:1fr}}
+.uni{border:1px solid var(--line);border-radius:14px;padding:28px 24px;background:var(--panel);position:relative;overflow:hidden;transition:transform .25s,border-color .25s}
+.uni:hover{transform:translateY(-4px);border-color:var(--c)}
+.uni .glyph{width:48px;height:48px;margin-bottom:16px}
+.uni h3{font-family:"Fraunces",serif;font-weight:900;font-size:26px;color:var(--c);margin-bottom:4px}
+body.lang-zh .uni h3{font-family:"Noto Serif SC",serif}
+.uni .sub{font-family:"Space Mono",monospace;font-size:11px;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.uni p{font-size:15px;color:#c9bfae;line-height:1.58;margin-bottom:14px}
+.uni .para{border-left:2px solid var(--c);padding:10px 14px;background:rgba(255,255,255,.02);font-size:14px;font-style:italic;color:#d2c8b7;border-radius:0 8px 8px 0}
+
+/* fraud / forager-farmer */
+#fraud{background:var(--panel)}
+.ff{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:36px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+@media(max-width:720px){.ff{grid-template-columns:1fr}}
+.ff-col{padding:28px 26px}
+.ff-col.forager{background:linear-gradient(180deg,rgba(154,164,106,.07),transparent)}
+.ff-col.farmer{background:linear-gradient(180deg,rgba(187,86,56,.08),transparent);border-left:1px solid var(--line)}
+@media(max-width:720px){.ff-col.farmer{border-left:none;border-top:1px solid var(--line)}}
+.ff-col h3{font-family:"Fraunces",serif;font-weight:900;font-size:24px;margin-bottom:4px}
+body.lang-zh .ff-col h3{font-family:"Noto Serif SC",serif}
+.ff-col.forager h3{color:var(--sage)} .ff-col.farmer h3{color:var(--clay)}
+.ff-col .when{font-family:"Space Mono",monospace;font-size:11px;color:var(--dim);letter-spacing:.05em;margin-bottom:18px}
+.ff-row{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line2);font-size:14.5px;color:#c9bfae}
+.ff-row:last-child{border:none}
+.ff-row .lbl{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.04em;color:var(--faint);width:88px;flex:none;text-transform:uppercase;padding-top:2px}
+body.lang-zh .ff-row .lbl{width:62px}
+.fraud-punch{margin-top:26px;padding:18px 20px;border-left:2px solid var(--gold);background:rgba(216,168,80,.06);font-size:16px;color:#e3d9c8;font-style:italic;border-radius:0 8px 8px 0;max-width:820px}
+
+/* ignorance / nexus */
+#ignorance{background:var(--ink)}
+.nexus{display:grid;grid-template-columns:340px 1fr;gap:48px;align-items:center;margin-top:38px}
+@media(max-width:880px){.nexus{grid-template-columns:1fr;gap:28px}}
+#nexus-canvas{width:100%;max-width:340px;aspect-ratio:1;margin:0 auto}
+.nexus-list .ni{padding:15px 0;border-bottom:1px solid var(--line2)}
+.nexus-list .ni:last-child{border:none}
+.nexus-list .ni h4{font-family:"Fraunces",serif;font-weight:600;font-size:19px;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+body.lang-zh .nexus-list .ni h4{font-family:"Noto Serif SC",serif}
+.nexus-list .ni h4 .pip{width:11px;height:11px;border-radius:3px;flex:none}
+.nexus-list .ni p{font-size:14.5px;color:#c9bfae;line-height:1.55}
+
+/* ledger chart */
+#ledger{background:var(--panel)}
+#ledger-canvas{width:100%;height:380px;display:block;margin-top:30px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,#100c08,#15110d)}
+.ledger-legend{display:flex;gap:24px;flex-wrap:wrap;margin-top:18px;font-family:"Space Mono",monospace;font-size:12.5px}
+.ledger-legend span{display:flex;align-items:center;gap:8px;color:var(--dim)}
+.ledger-legend i{width:18px;height:3px;border-radius:2px;display:inline-block}
+
+/* end of sapiens */
+#end{background:var(--ink)}
+.end-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+@media(max-width:880px){.end-grid{grid-template-columns:1fr}}
+.epath{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel);transition:border-color .25s}
+.epath:hover{border-color:var(--steel)}
+.epath .en{font-family:"Space Mono",monospace;font-size:11px;color:var(--steel);letter-spacing:.08em}
+.epath h3{font-family:"Fraunces",serif;font-weight:600;font-size:21px;margin:6px 0 8px}
+body.lang-zh .epath h3{font-family:"Noto Serif SC",serif}
+.epath p{font-size:14.5px;color:#c9bfae;line-height:1.55}
+
+/* afterword */
+#afterword{background:linear-gradient(180deg,var(--panel),#0f0a06);text-align:center}
+#afterword .big{font-family:"Cinzel",serif;font-weight:900;font-size:clamp(30px,6vw,72px);line-height:1.05;letter-spacing:.02em;margin:10px auto 26px;max-width:14ch}
+body.lang-zh #afterword .big{font-family:"Noto Serif SC",serif;max-width:none}
+#afterword .big .arc{background:linear-gradient(100deg,var(--clay),var(--ochre) 45%,var(--gold) 72%,var(--steel));-webkit-background-clip:text;background-clip:text;color:transparent}
+#afterword .lede{margin:0 auto 22px}
+.aw-quote{font-family:"Fraunces",serif;font-style:italic;font-size:clamp(20px,3vw,30px);line-height:1.4;color:var(--gold);max-width:820px;margin:34px auto 0}
+body.lang-zh .aw-quote{font-family:"Noto Serif SC",serif;font-style:normal;font-weight:600}
+.aw-src{font-family:"Space Mono",monospace;font-size:12px;color:var(--faint);margin-top:16px;letter-spacing:.05em}
+
+/* footer */
+footer{background:var(--panel);border-top:1px solid var(--line);padding:56px clamp(16px,5vw,40px)}
+.foot{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+.foot .col h5{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre);margin-bottom:14px}
+.foot .col p,.foot .col a{font-size:14px;color:var(--dim);display:block;margin-bottom:8px}
+.foot .col a:hover{color:var(--ochre)}
+.foot .bk{max-width:380px}
+.foot .bk .t{font-family:"Fraunces",serif;font-size:20px;color:var(--bone);margin-bottom:4px}
+body.lang-zh .foot .bk .t{font-family:"Noto Serif SC",serif}
+.foot .bk .meta{font-size:13px;color:var(--dim);font-style:italic}
+.copy{max-width:var(--maxw);margin:40px auto 0;padding-top:24px;border-top:1px solid var(--line2);font-family:"Space Mono",monospace;font-size:11.5px;color:var(--faint);letter-spacing:.04em;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body class="lang-en">
+
+<nav id="nav">
+  <a class="brand" href="#hero">
+    <svg viewBox="0 0 32 32"><path d="M8 24c0-8 2.5-13 8-13s8 5 8 13" fill="none" stroke="#d4814a" stroke-width="1.6" stroke-linecap="round"/><circle cx="16" cy="9" r="2.6" fill="#d8a850"/></svg>
+    <span>SAPIENS <span class="sub">/人类简史</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#thesis" data-k="nav.thesis"></a>
+    <a href="#revolutions" data-k="nav.rev"></a>
+    <a href="#fiction" data-k="nav.fiction"></a>
+    <a href="#fraud" data-k="nav.fraud"></a>
+    <a href="#end" data-k="nav.end"></a>
+  </div>
+  <button class="langtog" id="langtog">中文</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="deeptime"></canvas>
+  <div class="wrap">
+    <div class="hero-kick" data-k="hero.kick"></div>
+    <h1 class="hero-title"><span class="en-only arc">SAPIENS</span><span class="zh-only arc">人类简史</span></h1>
+    <div class="hero-alt en-only">人类简史 · From Animals into Gods</div>
+    <div class="hero-alt zh-only">SAPIENS · 从动物到上帝</div>
+    <p class="hero-lede" data-k="hero.lede"></p>
+    <p class="hero-by" data-k="hero.by"></p>
+    <div class="hero-cta">
+      <a class="btn primary" href="#revolutions" data-k="hero.cta1"></a>
+      <a class="btn" href="#thesis" data-k="hero.cta2"></a>
+    </div>
+  </div>
+  <div class="scroll-hint" data-k="hero.scroll"></div>
+</section>
+
+<!-- THESIS -->
+<section id="thesis">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="n">00 ·</span> <span data-k="thesis.eyebrow"></span></div>
+    <div class="thesis-grid">
+      <div><p class="pull" data-k="thesis.pull"></p></div>
+      <div class="thesis-body">
+        <p data-k="thesis.p1"></p>
+        <p data-k="thesis.p2"></p>
+        <p data-k="thesis.p3"></p>
+        <p class="src" data-k="thesis.src"></p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- FOUR REVOLUTIONS -->
+<section id="revolutions">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="n">01 ·</span> <span data-k="rev.eyebrow"></span></div>
+    <h2 class="title" data-k="rev.title"></h2>
+    <p class="lede" data-k="rev.lede"></p>
+    <div class="rev-rail" id="rev-rail"></div>
+    <div class="rev-panel" id="rev-panel"></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- FICTION -->
+<section id="fiction">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="n">02 ·</span> <span data-k="fic.eyebrow"></span></div>
+    <h2 class="title" data-k="fic.title"></h2>
+    <p class="lede" data-k="fic.lede"></p>
+
+    <div class="lab">
+      <div class="lab-head"><h3 data-k="fic.s1title"></h3><span class="tag" data-k="fic.s1tag"></span></div>
+      <p class="exp" data-k="fic.s1exp"></p>
+      <div class="scaler">
+        <div class="scaler-steps" id="scaler-steps"></div>
+        <div class="scaler-view">
+          <div class="scaler-num" id="scaler-num"></div>
+          <div class="scaler-cap" id="scaler-cap"></div>
+          <canvas id="dotfield"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><h3 data-k="fic.s2title"></h3><span class="tag" data-k="fic.s2tag"></span></div>
+      <p class="exp" data-k="fic.s2exp"></p>
+      <div class="rvf-grid" id="rvf-grid"></div>
+      <div class="rvf-hint" id="rvf-hint"></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- UNIFIERS -->
+<section id="unifiers">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="n">03 ·</span> <span data-k="uni.eyebrow"></span></div>
+    <h2 class="title" data-k="uni.title"></h2>
+    <p class="lede" data-k="uni.lede"></p>
+    <div class="uni-grid" id="uni-grid"></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- FRAUD -->
+<section id="fraud">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="n">04 ·</span> <span data-k="fr.eyebrow"></span></div>
+    <h2 class="title" data-k="fr.title"></h2>
+    <p class="lede" data-k="fr.lede"></p>
+    <div class="ff">
+      <div class="ff-col forager">
+        <h3 data-k="fr.forager"></h3><div class="when" data-k="fr.foragerwhen"></div>
+        <div id="ff-forager"></div>
+      </div>
+      <div class="ff-col farmer">
+        <h3 data-k="fr.farmer"></h3><div class="when" data-k="fr.farmerwhen"></div>
+        <div id="ff-farmer"></div>
+      </div>
+    </div>
+    <div class="fraud-punch" data-k="fr.punch"></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- IGNORANCE / NEXUS -->
+<section id="ignorance">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="n">05 ·</span> <span data-k="ig.eyebrow"></span></div>
+    <h2 class="title" data-k="ig.title"></h2>
+    <p class="lede" data-k="ig.lede"></p>
+    <div class="nexus">
+      <canvas id="nexus-canvas"></canvas>
+      <div class="nexus-list" id="nexus-list"></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- LEDGER -->
+<section id="ledger">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="n">06 ·</span> <span data-k="le.eyebrow"></span></div>
+    <h2 class="title" data-k="le.title"></h2>
+    <p class="lede" data-k="le.lede"></p>
+    <canvas id="ledger-canvas"></canvas>
+    <div class="ledger-legend" id="ledger-legend"></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- END OF SAPIENS -->
+<section id="end">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="n">07 ·</span> <span data-k="en.eyebrow"></span></div>
+    <h2 class="title" data-k="en.title"></h2>
+    <p class="lede" data-k="en.lede"></p>
+    <div class="end-grid" id="end-grid"></div>
+  </div>
+</section>
+
+<!-- AFTERWORD -->
+<section id="afterword">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="justify-content:center"><span data-k="aw.eyebrow"></span></div>
+    <div class="big"><span class="en-only">The Animal That <span class="arc">Became a God</span></span><span class="zh-only">变成<span class="arc">神</span>的这种动物</span></div>
+    <p class="lede" data-k="aw.lede"></p>
+    <p class="aw-quote" data-k="aw.quote"></p>
+    <p class="aw-src" data-k="aw.src"></p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div class="col bk">
+      <div class="t en-only">Sapiens: A Brief History of Humankind</div>
+      <div class="t zh-only">人类简史：从动物到上帝</div>
+      <div class="meta" data-k="ft.book"></div>
+      <p style="margin-top:14px" data-k="ft.note"></p>
+    </div>
+    <div class="col">
+      <h5 data-k="ft.explore"></h5>
+      <a href="#revolutions" data-k="nav.rev"></a>
+      <a href="#fiction" data-k="nav.fiction"></a>
+      <a href="#unifiers" data-k="nav.unifiers"></a>
+      <a href="#end" data-k="nav.end"></a>
+    </div>
+    <div class="col">
+      <h5 data-k="ft.part"></h5>
+      <a href="https://psyverse.fun" target="_blank">psyverse.fun</a>
+      <a href="https://psyverse.fun/atlas.html" target="_blank" data-k="ft.atlas"></a>
+    </div>
+  </div>
+  <div class="copy">
+    <span data-k="ft.copy"></span>
+    <span>Psyverse · sapiens.psyverse.fun</span>
+  </div>
+</footer>
+
+<script>
+/* ============ i18n CONTENT ============ */
+const D = {
+  nav:{ thesis:{en:"Thesis",zh:"主题"}, rev:{en:"Revolutions",zh:"四大革命"}, fiction:{en:"Fiction",zh:"虚构"}, fraud:{en:"The Fraud",zh:"骗局"}, unifiers:{en:"Unifiers",zh:"融合"}, end:{en:"The End",zh:"末日"} },
+  hero:{
+    kick:{en:"Yuval Noah Harari · A Brief History of Humankind",zh:"尤瓦尔·赫拉利 · 一部人类的简史"},
+    lede:{en:"70,000 years ago we were an animal of no significance. Then we learned to tell stories — and through <b>shared fictions</b> we conquered the planet, invented gods and money and nations, and made ourselves into something close to gods.",
+          zh:"七万年前，我们不过是一种微不足道的动物。然后我们学会了讲故事——通过<b>共同的虚构</b>，我们征服了地球，发明了神、金钱与国家，并把自己变成了近乎神的存在。"},
+    by:{en:"An interactive, bilingual companion to Sapiens — paraphrasing and engaging its ideas, never reproducing the book.",
+        zh:"一部《人类简史》的双语互动伴读——转述并对话其思想，绝不复制原书内容。"},
+    cta1:{en:"The Four Revolutions →",zh:"四大革命 →"},
+    cta2:{en:"The central idea",zh:"核心思想"},
+    scroll:{en:"13.5 billion years ↓",zh:"135亿年 ↓"}
+  },
+  thesis:{
+    eyebrow:{en:"The Argument",zh:"核心论点"},
+    pull:{en:"“There are no gods, no nations, no money and no human rights — except in the <span class='hl'>common imagination</span> of human beings.”",
+          zh:"“神、国家、金钱和人权，都只存在于人类共同的<span class='hl'>想象</span>之中。”"},
+    p1:{en:"Biologically, Homo sapiens is just one ape among others — weaker than a chimp, slower than a horse. What sets us apart is not our bodies or even our individual minds, but our unique ability to cooperate flexibly, in huge numbers, with total strangers.",
+        zh:"从生物学上看，智人不过是众多猿类中的一种——比黑猩猩弱，比马跑得慢。让我们与众不同的，不是身体，甚至不是个体的智力，而是一种独特的能力：与完全陌生的人，灵活地、大规模地合作。"},
+    p2:{en:"That cooperation runs on fiction. Money, laws, nations, corporations, gods, human rights — none exist in the physical world. They exist because we collectively agree to believe in them. Harari calls these <em>imagined orders</em>: realities that are not lies, but inter-subjective — real only as long as enough minds share the story.",
+        zh:"而这种合作，依靠的是虚构。金钱、法律、国家、公司、神、人权——没有一样存在于物理世界。它们之所以存在，是因为我们集体同意相信它们。赫拉利称之为<em>“想象的秩序”</em>：它们不是谎言，而是“主体间”的真实——只要足够多的心智共享这个故事，它就是真的。"},
+    p3:{en:"This single capacity — to invent and believe shared stories — is the engine that drove four great revolutions and turned a marginal savannah ape into the ruler, and the nightmare, of the entire biosphere.",
+        zh:"正是这一种能力——发明并相信共同的故事——驱动了四场伟大的革命，把一种边缘的草原猿类，变成了整个生物圈的主宰，也是它的梦魇。"},
+    src:{en:"— paraphrasing the central thesis of Sapiens",zh:"——转述《人类简史》的核心论点"}
+  },
+  rev:{
+    eyebrow:{en:"The Spine of the Book",zh:"全书的脊柱"},
+    title:{en:"The Four Revolutions",zh:"四大革命"},
+    lede:{en:"Harari frames all of human history as four turning points. Click through each — and notice that every leap in power carried a hidden cost.",
+          zh:"赫拉利把整部人类史归结为四个转折点。逐一点击——并留意：每一次能力的跃升，都暗藏着代价。"}
+  },
+  fic:{
+    eyebrow:{en:"The Mechanism",zh:"运作机制"},
+    title:{en:"The Power of Fiction",zh:"虚构的力量"},
+    lede:{en:"Why can millions of strangers build a cathedral, run a state, or trade across oceans — while chimpanzees max out at a few dozen? Because we believe the same invisible stories.",
+          zh:"为什么数百万陌生人能共建一座大教堂、运转一个国家、跨洋贸易——而黑猩猩的群体上限只有几十只？因为我们相信同样看不见的故事。"},
+    s1title:{en:"The Cooperation Ceiling",zh:"合作的天花板"},
+    s1tag:{en:"interactive",zh:"互动"},
+    s1exp:{en:"Each mechanism of trust raises the number of individuals who can cooperate. Select a rung to see the ceiling rise.",
+           zh:"每一种信任机制，都会抬高能够合作的人数上限。选择一个层级，看天花板如何升高。"},
+    s2title:{en:"Real, or Imagined?",zh:"真实，还是想象？"},
+    s2tag:{en:"tap to reveal",zh:"点击揭晓"},
+    s2exp:{en:"Some of these exist whether or not anyone believes in them. Others vanish the moment we stop believing. Tap each to see which is which.",
+           zh:"其中一些，无论是否有人相信都存在。另一些，一旦我们停止相信便会消失。点击每一个，看看它属于哪一类。"}
+  },
+  uni:{
+    eyebrow:{en:"The Unification of Humankind",zh:"人类的融合统一"},
+    title:{en:"Three Forces That Merged the World",zh:"融合世界的三种力量"},
+    lede:{en:"For most of history, humanity was split into thousands of isolated worlds. Three great fictions slowly fused them into one — each universal, each carrying its own paradox.",
+          zh:"在历史的大部分时间里，人类分裂成成千上万个孤立的世界。三种伟大的虚构，缓慢地把它们熔铸为一体——每一种都是普世的，也各自带着自己的悖论。"}
+  },
+  fr:{
+    eyebrow:{en:"History's Biggest Fraud",zh:"史上最大骗局"},
+    title:{en:"Did We Domesticate Wheat, or Did Wheat Domesticate Us?",zh:"是我们驯化了小麦，还是小麦驯化了我们？"},
+    lede:{en:"The Agricultural Revolution is told as humanity's great triumph. Harari calls it a trap. Farming fed more people — at a lower quality of life for almost every one of them.",
+          zh:"农业革命常被讲成人类的伟大胜利。赫拉利却称它是一个陷阱。农耕养活了更多人——却让其中几乎每一个人，活得更糟。"},
+    forager:{en:"The Forager",zh:"采集者"},
+    foragerwhen:{en:"before ~12,000 years ago",zh:"约12000年前之前"},
+    farmer:{en:"The Farmer",zh:"农民"},
+    farmerwhen:{en:"after the Agricultural Revolution",zh:"农业革命之后"},
+    punch:{en:"The wheat did not serve us; we bent our backs, broke our spines, and abandoned the open horizon to serve it. We thought we were domesticating plants. In truth, a handful of plant species domesticated us — and the species multiplied while the individual suffered. That, Harari argues, is the deep pattern of history.",
+           zh:"小麦没有服务我们；是我们弯下腰、累垮脊椎、放弃了广阔的地平线，去服务它。我们以为自己在驯化植物。事实上，是少数几种植物驯化了我们——物种的数量在膨胀，个体的境遇却在恶化。赫拉利认为，这正是历史深层的模式。"}
+  },
+  ig:{
+    eyebrow:{en:"The Scientific Revolution",zh:"科学革命"},
+    title:{en:"The Discovery of Ignorance",zh:"发现自己的无知"},
+    lede:{en:"What made modern science explode after 1500 was not a new fact but a new admission: <em>we do not know.</em> Once Europeans accepted their own ignorance, three engines locked together and remade the planet.",
+          zh:"让现代科学在1500年后爆发的，不是某个新事实，而是一句新的承认：<em>我们不知道。</em>一旦欧洲人接受了自身的无知，三台引擎便彼此咬合，重塑了整个星球。"}
+  },
+  le:{
+    eyebrow:{en:"The Balance Sheet",zh:"一本总账"},
+    title:{en:"Power Soared. Did Anything Else?",zh:"力量飙升，其它呢？"},
+    lede:{en:"Across every revolution, the collective power of Sapiens has risen almost vertically. But two other lines tell a darker story — and the gap between them is the question Harari leaves us with.",
+          zh:"在每一场革命中，智人的集体力量几乎垂直上升。但另外两条曲线，讲述着更黑暗的故事——它们之间的鸿沟，正是赫拉利留给我们的问题。"}
+  },
+  en:{
+    eyebrow:{en:"The End of Homo Sapiens",zh:"智人末日"},
+    title:{en:"From Natural Selection to Intelligent Design",zh:"从自然选择到智慧设计"},
+    lede:{en:"For 4 billion years, life was shaped by natural selection. Now Sapiens is learning to redesign life itself. Three paths could end the era of Homo sapiens — not by killing us, but by replacing us.",
+          zh:"四十亿年来，生命由自然选择塑造。如今，智人正在学习重新设计生命本身。三条道路可能终结智人的时代——不是杀死我们，而是取代我们。"}
+  },
+  aw:{
+    eyebrow:{en:"Afterword",zh:"后记"},
+    lede:{en:"In 70,000 years we went from a marginal animal to the master of the planet — and we stand one step from godhood, able to create and destroy at will.",
+          zh:"在七万年里，我们从一种边缘动物变成了星球的主宰——如今只差一步便可踏入神的境界，能够随心所欲地创造与毁灭。"},
+    quote:{en:"“We are an animal that has acquired the powers of a god — irresponsible, dissatisfied, and not even sure what we want. Is there anything more dangerous than that?”",
+           zh:"“我们是一种获得了神之力量的动物——不负责任、贪得无厌，甚至不知道自己想要什么。还有什么比这更危险吗？”"},
+    src:{en:"— paraphrasing the closing lines of Sapiens",zh:"——转述《人类简史》的结语"}
+  },
+  ft:{
+    book:{en:"Yuval Noah Harari · 中信出版社 (illustrated edition) · ISBN 9787508647357",zh:"尤瓦尔·赫拉利 著 · 中信出版社（图文精编版）· ISBN 9787508647357"},
+    note:{en:"An independent, non-commercial interactive reading — original commentary and visualizations that engage the book's ideas. It is not the book, and reproduces none of its text.",
+          zh:"一份独立、非商业的互动伴读——以原创评述与可视化对话本书思想。它不是原书，也不复制原书的任何文字。"},
+    explore:{en:"Explore",zh:"探索"}, part:{en:"Part of",zh:"所属"}, atlas:{en:"The Atlas",zh:"星图总览"},
+    copy:{en:"© 2026 Psyverse — a reading, not the book itself.",zh:"© 2026 Psyverse — 这是一份伴读，而非原书。"}
+  }
+};
+
+/* Four revolutions */
+const REV = [
+  { c:"#d8a850", when:"~70,000 yrs ago", whenZh:"约7万年前",
+    rt:{en:"Cognitive",zh:"认知革命"}, h:{en:"The Cognitive Revolution",zh:"认知革命"},
+    p:{en:"A chance genetic tweak rewired the Sapiens brain, giving rise to a new kind of language — one that could describe things that do not exist. We could now gossip about each other (binding groups together) and, crucially, invent shared myths. This is the moment fiction is born, and history begins.",
+       zh:"一次偶然的基因突变重新连接了智人的大脑，催生出一种新的语言——它能够描述并不存在的事物。我们由此能够彼此“八卦”（让群体更紧密），更关键的是，能够发明共同的神话。虚构在此刻诞生，历史也由此开始。"},
+    idea:{en:"Language that can speak of fictions lets unrelated strangers cooperate around a shared story.",
+          zh:"能够谈论虚构的语言，让毫无血缘的陌生人，得以围绕一个共同的故事而合作。"},
+    cost:{en:"As Sapiens spread, every other human species — including the Neanderthals — vanished within a few thousand years.",
+          zh:"随着智人扩散，其它所有人类物种——包括尼安德特人——在几千年内尽数消失。"} },
+  { c:"#9aa46a", when:"~12,000 yrs ago", whenZh:"约1.2万年前",
+    rt:{en:"Agricultural",zh:"农业革命"}, h:{en:"The Agricultural Revolution",zh:"农业革命"},
+    p:{en:"Sapiens settled down to farm wheat, rice and maize. Populations exploded and the first villages, then kingdoms, appeared. But the average farmer worked harder, ate worse, and fell sicker than the forager who came before. The species multiplied; the individual's life shrank.",
+       zh:"智人定居下来，种植小麦、稻米与玉米。人口激增，最早的村庄、继而王国出现。但普通农民比此前的采集者劳作更苦、吃得更差、也更易生病。物种在繁衍，个体的生活却在萎缩。"},
+    idea:{en:"More calories meant more people — and the surplus made cities, hierarchies and writing possible.",
+          zh:"更多的卡路里意味着更多的人——而剩余产出，让城市、等级制度与文字成为可能。"},
+    cost:{en:"Humanity walked into a luxury trap, and most farmers lived worse lives than their ancestors. Harari calls it history's biggest fraud.",
+          zh:"人类走进了“奢侈的陷阱”，多数农民活得比祖先更糟。赫拉利称之为史上最大的骗局。"} },
+  { c:"#d4814a", when:"last ~5,000 yrs", whenZh:"近5000年",
+    rt:{en:"Unification",zh:"融合统一"}, h:{en:"The Unification of Humankind",zh:"人类的融合统一"},
+    p:{en:"As surpluses grew, ever-larger imagined orders bound strangers together. Three universal fictions — money, empire, and religion — slowly fused thousands of separate cultures into a single, interconnected human world. For the first time, history had a direction: toward unity.",
+       zh:"随着剩余产出增长，越来越大的“想象的秩序”将陌生人捆绑在一起。三种普世的虚构——金钱、帝国与宗教——缓慢地把成千上万个分立的文化，熔铸为一个相互联结的人类世界。历史第一次有了方向：走向统一。"},
+    idea:{en:"Money, empire and religion are universal: each claims to apply to everyone, everywhere, drawing humanity into one web.",
+          zh:"金钱、帝国与宗教都是普世的：每一种都宣称适用于所有人、所有地方，把人类拉入同一张网。"},
+    cost:{en:"Unification was often written in conquest, slavery and forced conversion — the global village built on broken worlds.",
+          zh:"这种统一往往以征服、奴役与强制皈依写就——全球村庄，是建立在被打碎的世界之上的。"} },
+  { c:"#6fb0c8", when:"last ~500 yrs", whenZh:"近500年",
+    rt:{en:"Scientific",zh:"科学革命"}, h:{en:"The Scientific Revolution",zh:"科学革命"},
+    p:{en:"Around 1500, Europeans did something radical: they admitted they did not know the most important things — and set out to find out. Science, empire and capitalism locked into a feedback loop of discovery, conquest and investment that, in five centuries, gave Sapiens powers earlier ages reserved for gods.",
+       zh:"约1500年，欧洲人做了一件激进的事：他们承认自己并不知道最重要的事情——并出发去寻找答案。科学、帝国与资本主义咬合成一个“发现—征服—投资”的反馈循环，在五个世纪里，赋予智人此前只属于神的力量。"},
+    idea:{en:"Admitting ignorance — “we do not know” — turned knowledge into an open, self-correcting, power-generating engine.",
+          zh:"承认无知——“我们不知道”——把知识变成了一台开放、自我修正、不断生成力量的引擎。"},
+    cost:{en:"That same engine now threatens ecological collapse, nuclear war, and the redesign — or replacement — of humanity itself.",
+          zh:"正是同一台引擎，如今正威胁着生态崩溃、核战争，以及对人类自身的重新设计——乃至取代。"} }
+];
+
+/* cooperation scaler */
+const SCALE = [
+  { c:"#8a7c66", n:{en:"≈ dozens",zh:"≈ 数十"}, l:{en:"Chimpanzees",zh:"黑猩猩"}, dots:24,
+    cap:{en:"Apes cooperate only through personal, face-to-face bonds. Trust cannot scale beyond who you personally know.",
+         zh:"猿类只能通过私人的、面对面的关系合作。信任无法超越你亲身认识的范围。"} },
+  { c:"#9aa46a", n:{en:"≈ 150",zh:"≈ 150"}, l:{en:"Gossip & Bands",zh:"八卦与部落"}, dots:80,
+    cap:{en:"Gossip lets us track reputations, binding a band of intimates. But around 150 people, the web of personal knowledge breaks down — the “Dunbar ceiling.”",
+         zh:"八卦让我们追踪彼此的声誉，凝聚起一个熟人小群体。但到了大约150人，私人关系的网络就会崩溃——这就是“邓巴上限”。"} },
+  { c:"#d8a850", n:{en:"millions",zh:"数百万"}, l:{en:"Shared Myths",zh:"共同神话"}, dots:240,
+    cap:{en:"A shared story — a god, a nation, a law — lets total strangers trust one another. Belief, not acquaintance, becomes the glue. Cities and kingdoms become possible.",
+         zh:"一个共同的故事——一位神、一个国家、一部法律——让完全陌生的人彼此信任。粘合剂从“相识”变成了“相信”。城市与王国由此成为可能。"} },
+  { c:"#6fb0c8", n:{en:"billions",zh:"数十亿"}, l:{en:"Global Fictions",zh:"全球虚构"}, dots:520,
+    cap:{en:"Money, corporations and human rights are believed across the whole planet. Billions of strangers now cooperate inside the same invisible stories — the largest cooperation in the history of life.",
+         zh:"金钱、公司与人权，被整个星球所相信。数十亿陌生人如今在同样看不见的故事中合作——这是生命史上规模最大的合作。"} }
+];
+
+/* real vs fiction */
+const RVF = [
+  {ico:"⛰️", n:{en:"Mountain",zh:"山"}, real:true, v:{en:"OBJECTIVE",zh:"客观真实"}},
+  {ico:"💵", n:{en:"Money",zh:"金钱"}, real:false, v:{en:"IMAGINED",zh:"想象虚构"}},
+  {ico:"🧬", n:{en:"DNA",zh:"DNA"}, real:true, v:{en:"OBJECTIVE",zh:"客观真实"}},
+  {ico:"🏛️", n:{en:"The Nation",zh:"国家"}, real:false, v:{en:"IMAGINED",zh:"想象虚构"}},
+  {ico:"🌊", n:{en:"A River",zh:"河流"}, real:true, v:{en:"OBJECTIVE",zh:"客观真实"}},
+  {ico:"🏢", n:{en:"A Corporation",zh:"公司"}, real:false, v:{en:"IMAGINED",zh:"想象虚构"}},
+  {ico:"☀️", n:{en:"Gravity",zh:"重力"}, real:true, v:{en:"OBJECTIVE",zh:"客观真实"}},
+  {ico:"⚖️", n:{en:"Human Rights",zh:"人权"}, real:false, v:{en:"IMAGINED",zh:"想象虚构"}},
+];
+
+/* three unifiers */
+const UNI = [
+  { c:"#d8a850", glyph:"money",
+    h:{en:"Money",zh:"金钱"}, sub:{en:"Universal trust",zh:"普世的信任"},
+    p:{en:"Money is the most universal and efficient system of mutual trust ever devised. A coin or a number means nothing in itself — yet a Muslim merchant and a Christian merchant who share no god, language or king will both trust the same gold.",
+       zh:"金钱是人类有史以来发明的、最普世也最高效的互信系统。一枚硬币、一个数字，本身毫无意义——然而，不共享同一位神、同一种语言、同一位君王的穆斯林商人与基督徒商人，却都信任同一块黄金。"},
+    para:{en:"Its paradox: money can translate anything into anything — and in doing so, it can corrode every other value, loyalty and bond it touches.",
+          zh:"它的悖论在于：金钱能把万物换算成万物——也正因如此，它能腐蚀它所触及的一切其它价值、忠诚与情感。"} },
+  { c:"#bb5638", glyph:"empire",
+    h:{en:"Empire",zh:"帝国"}, sub:{en:"Universal order",zh:"普世的秩序"},
+    p:{en:"Empires are the most common political form in history and the great engine of cultural fusion. By absorbing many peoples under one rule, they spread laws, languages, ideas and technologies — the alphabet, numerals, and law codes we still use are imperial inheritances.",
+       zh:"帝国是历史上最常见的政治形态，也是文化融合的伟大引擎。通过将众多民族纳入同一统治，帝国传播了法律、语言、观念与技术——我们今天仍在使用的字母、数字与法典，皆是帝国的遗产。"},
+    para:{en:"Its paradox: the same empires that unified the world did so through conquest and oppression. Almost everything we cherish was built on someone's subjugation.",
+          zh:"它的悖论在于：统一了世界的那些帝国，是通过征服与压迫做到这一点的。我们所珍视的几乎一切，都建立在某些人被奴役的基础之上。"} },
+  { c:"#a692d8", glyph:"religion",
+    h:{en:"Religion",zh:"宗教"}, sub:{en:"Universal truth",zh:"普世的真理"},
+    p:{en:"Religion is the third great unifier: a system of norms grounded in a belief in a superhuman order. When religions became universal and missionary — claiming one truth for all humans — they could legitimize sprawling societies of strangers and bind them across continents.",
+       zh:"宗教是第三种伟大的融合力量：一套以“相信超人类秩序”为根基的规范系统。当宗教变得普世而具有传教性——宣称一种适用于所有人的真理时——它便能为庞大的陌生人社会赋予正当性，并跨越大陆将其联结。"},
+    para:{en:"Harari's twist: the modern “isms” — liberalism, nationalism, capitalism — are also religions, faiths in imagined orders that simply do not name a god.",
+          zh:"赫拉利的洞见在于：现代的种种“主义”——自由主义、民族主义、资本主义——也是宗教，是对“想象秩序”的信仰，只是没有点出一位神的名字。"} }
+];
+
+/* forager vs farmer rows */
+const FF_F = [
+  {l:{en:"Diet",zh:"饮食"}, v:{en:"Dozens of varied foods; rarely famine when one source failed.",zh:"数十种多样食物；某一来源失败时也少有饥荒。"}},
+  {l:{en:"Work",zh:"劳作"}, v:{en:"A few hours of foraging; much leisure.",zh:"每天采集数小时；闲暇颇多。"}},
+  {l:{en:"Body",zh:"身体"}, v:{en:"Fit, mobile, varied movement; fewer chronic ailments.",zh:"健壮、移动多、动作多样；慢性病更少。"}},
+  {l:{en:"Knowledge",zh:"知识"}, v:{en:"Vast, intimate map of plants, animals and terrain.",zh:"对动植物与地形有广博而亲密的认知。"}},
+  {l:{en:"Risk",zh:"风险"}, v:{en:"Predators and accidents — but no crop to fail, no lord to tax.",zh:"有猛兽与意外——但没有会歉收的庄稼，也没有收税的领主。"}},
+];
+const FF_M = [
+  {l:{en:"Diet",zh:"饮食"}, v:{en:"A few staple crops; a single bad harvest meant starvation.",zh:"少数几种主粮；一次歉收便意味着饥荒。"}},
+  {l:{en:"Work",zh:"劳作"}, v:{en:"Dawn-to-dusk toil — clearing, sowing, weeding, hauling water.",zh:"从早到晚劳作——开垦、播种、除草、挑水。"}},
+  {l:{en:"Body",zh:"身体"}, v:{en:"Slipped discs, arthritis, hernias — bodies bent to the soil.",zh:"椎间盘突出、关节炎、疝气——身体被弯折在土地上。"}},
+  {l:{en:"Disease",zh:"疾病"}, v:{en:"Crowds and livestock bred epidemics never known before.",zh:"人群与牲畜密集，孕育出前所未有的瘟疫。"}},
+  {l:{en:"Power",zh:"权力"}, v:{en:"Surplus fed elites, armies and taxes — and new inequality.",zh:"剩余产出供养了精英、军队与赋税——以及新的不平等。"}},
+];
+
+/* nexus three engines */
+const NEX = [
+  {c:"#6fb0c8", h:{en:"Science",zh:"科学"}, p:{en:"Admits ignorance and generates new knowledge and power — but needs funding and direction to choose what to study.",zh:"承认无知，不断生成新的知识与力量——但需要资金与方向，来决定研究什么。"}},
+  {c:"#bb5638", h:{en:"Empire",zh:"帝国"}, p:{en:"Funds expeditions and conquest in search of new lands and resources — and uses science to rule them.",zh:"资助探险与征服，去寻找新的土地与资源——并用科学来统治它们。"}},
+  {c:"#d8a850", h:{en:"Capitalism",zh:"资本主义"}, p:{en:"Invests today's credit against tomorrow's growth — funding science and empire, and demanding endless expansion.",zh:"以今日的信贷，押注明日的增长——资助科学与帝国，并要求无止境的扩张。"}}
+];
+
+/* ledger lines */
+const LED = {
+  eras:{en:["Cognitive","Agricultural","Unification","Scientific","Now"],zh:["认知","农业","融合","科学","当下"]},
+  lines:[
+    {c:"#d4814a", k:{en:"Collective power of Sapiens",zh:"智人的集体力量"}, v:[0.10,0.22,0.40,0.72,1.0]},
+    {c:"#d8a850", k:{en:"Individual happiness (uncertain)",zh:"个体的幸福（存疑）"}, v:[0.50,0.40,0.45,0.50,0.52]},
+    {c:"#bb5638", k:{en:"Welfare of other animals",zh:"其它动物的福祉"}, v:[0.80,0.55,0.40,0.22,0.10]},
+  ]
+};
+
+/* end of sapiens */
+const END = [
+  {en:"Path 01",h:{en:"Biological Engineering",zh:"生物工程"},p:{en:"Rewriting our own genome — editing genes for health, intelligence, longevity. We become the first species to consciously design its successors.",zh:"改写我们自己的基因组——为健康、智力、长寿而编辑基因。我们将成为第一个有意识地设计其后代的物种。"}},
+  {en:"Path 02",h:{en:"Cyborg Fusion",zh:"赛博格融合"},p:{en:"Merging organic bodies with non-organic devices — bionic limbs, neural implants, minds wired to machines, until the line between human and tool dissolves.",zh:"将有机身体与无机装置融合——仿生肢体、神经植入、与机器相连的心智，直到人与工具的界线消融。"}},
+  {en:"Path 03",h:{en:"Inorganic Life",zh:"无机生命"},p:{en:"Building wholly non-organic intelligence — minds with no genes, no neurons, no death. If they wake, the 4-billion-year reign of organic life may simply end.",zh:"创造完全无机的智能——没有基因、没有神经元、没有死亡的心智。若它们觉醒，有机生命四十亿年的统治，或许就此终结。"}}
+];
+
+/* ============ RENDER ============ */
+let lang='en';
+const t=(o)=>o[lang];
+function renderStatic(){
+  document.querySelectorAll('[data-k]').forEach(el=>{
+    const p=el.getAttribute('data-k').split('.'); let v=D; p.forEach(k=>v=v&&v[k]);
+    if(v&&v[lang]!==undefined) el.innerHTML=v[lang];
+  });
+}
+
+let revA=0;
+function renderRev(){
+  const rail=document.getElementById('rev-rail');
+  rail.innerHTML=REV.map((r,i)=>`<div class="rev-tab ${i===revA?'active':''}" data-i="${i}" style="--c:${r.c}"><div class="dot"></div><div class="when">${lang==='en'?r.when:r.whenZh}</div><div class="rt">${t(r.rt)}</div></div>`).join('');
+  rail.querySelectorAll('.rev-tab').forEach(x=>x.onclick=()=>{revA=+x.dataset.i;renderRev();});
+  const r=REV[revA];
+  document.getElementById('rev-panel').innerHTML=`<div style="--c:${r.c}">
+    <h3>${t(r.h)}</h3><div class="when2">${lang==='en'?r.when:r.whenZh}</div>
+    <p>${t(r.p)}</p>
+    <div class="rev-meta">
+      <div class="idea"><div class="k">${lang==='en'?'The leap':'跃升'}</div><div class="v">${t(r.idea)}</div></div>
+      <div class="cost"><div class="k">${lang==='en'?'The hidden cost':'隐藏的代价'}</div><div class="v">${t(r.cost)}</div></div>
+    </div></div>`;
+}
+
+let scA=0, dotAnim=null;
+function renderScaler(){
+  const steps=document.getElementById('scaler-steps');
+  steps.innerHTML=SCALE.map((s,i)=>`<div class="sstep ${i===scA?'active':''}" data-i="${i}" style="--c:${s.c}"><div class="sn">${t(s.n)}</div><div class="sl">${t(s.l)}</div></div>`).join('');
+  steps.querySelectorAll('.sstep').forEach(x=>x.onclick=()=>{scA=+x.dataset.i;renderScaler();});
+  const s=SCALE[scA];
+  document.getElementById('scaler-num').textContent=t(s.n);
+  document.getElementById('scaler-num').style.color=s.c;
+  document.getElementById('scaler-cap').textContent=t(s.cap);
+  drawDots(s.dots,s.c);
+}
+function drawDots(count,color){
+  const cv=document.getElementById('dotfield');const x=cv.getContext('2d');
+  const r=devicePixelRatio||1;const W=cv.width=cv.offsetWidth*r;const H=cv.height=Math.max(120,cv.offsetHeight)*r;
+  if(dotAnim)cancelAnimationFrame(dotAnim);
+  const pts=[];const cols=Math.ceil(Math.sqrt(count*W/H));const rows=Math.ceil(count/cols);
+  for(let i=0;i<count;i++){const cx=(i%cols+0.5)/cols*W, cy=(Math.floor(i/cols)+0.5)/rows*H;pts.push({x:cx,y:cy,d:Math.random()*30,s:0});}
+  let f=0;
+  function frame(){f++;x.clearRect(0,0,W,H);
+    pts.forEach(p=>{if(f>p.d&&p.s<1)p.s=Math.min(1,p.s+0.08);
+      if(p.s>0){x.beginPath();x.arc(p.x,p.y,Math.max(1.4,(W/cols)*0.16)*p.s,0,7);
+        x.fillStyle=color;x.globalAlpha=0.35+0.55*p.s;x.fill();x.globalAlpha=1;}});
+    if(pts.some(p=>p.s<1))dotAnim=requestAnimationFrame(frame);
+  }
+  frame();
+}
+
+function renderRVF(){
+  const g=document.getElementById('rvf-grid');
+  g.innerHTML=RVF.map((r,i)=>`<div class="rvf" data-i="${i}"><div class="ico">${r.ico}</div><div class="rn">${t(r.n)}</div><div class="verdict"></div></div>`).join('');
+  document.getElementById('rvf-hint').textContent=lang==='en'?'Tap each card. Everything golden exists only because we believe in it.':'点击每张卡片。所有金色的事物，仅因我们相信而存在。';
+  g.querySelectorAll('.rvf').forEach(el=>el.onclick=()=>{
+    const r=RVF[+el.dataset.i];el.classList.add('revealed',r.real?'real':'fiction');
+    el.querySelector('.verdict').textContent=t(r.v);
+  });
+}
+
+function renderUni(){
+  document.getElementById('uni-grid').innerHTML=UNI.map(u=>`
+    <div class="uni" style="--c:${u.c}">${uniGlyph(u.glyph,u.c)}
+      <h3>${t(u.h)}</h3><div class="sub">${t(u.sub)}</div>
+      <p>${t(u.p)}</p><div class="para">${t(u.para)}</div></div>`).join('');
+}
+function uniGlyph(k,c){
+  const s=`stroke="${c}" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"`;
+  const g={
+    money:`<circle cx="24" cy="24" r="17" ${s}/><path d="M24 13v22M29 18c0-2-2.5-3-5-3s-5 1-5 3.5S22 22 24 22s5 .8 5 3.5-2.5 3.5-5 3.5-5-1-5-3" ${s}/>`,
+    empire:`<path d="M8 40h32M12 40V22M36 40V22M10 22l14-12 14 12M20 40V28h8v12" ${s}/>`,
+    religion:`<circle cx="24" cy="18" r="7" ${s}/><path d="M24 25v15M16 32h16" ${s}/>`
+  };
+  return `<svg class="glyph" viewBox="0 0 48 48">${g[k]||''}</svg>`;
+}
+
+function renderFF(){
+  const row=(d)=>`<div class="ff-row"><div class="lbl">${t(d.l)}</div><div>${t(d.v)}</div></div>`;
+  document.getElementById('ff-forager').innerHTML=FF_F.map(row).join('');
+  document.getElementById('ff-farmer').innerHTML=FF_M.map(row).join('');
+}
+
+function renderNexus(){
+  document.getElementById('nexus-list').innerHTML=NEX.map(n=>`<div class="ni"><h4><span class="pip" style="background:${n.c}"></span>${t(n.h)}</h4><p>${t(n.p)}</p></div>`).join('');
+  drawNexus();
+}
+function drawNexus(){
+  const cv=document.getElementById('nexus-canvas');if(!cv)return;
+  const r=devicePixelRatio||1;const S=cv.width=cv.offsetWidth*r;cv.height=S;
+  const x=cv.getContext('2d');const cx=S/2,cy=S/2,R=S*0.30;
+  x.clearRect(0,0,S,S);
+  const ang=[-Math.PI/2,Math.PI/6,Math.PI*5/6];
+  const pts=ang.map(a=>[cx+Math.cos(a)*R,cy+Math.sin(a)*R]);
+  // arrows (cycle)
+  for(let i=0;i<3;i++){const a=pts[i],b=pts[(i+1)%3];
+    x.strokeStyle='rgba(240,232,218,.28)';x.lineWidth=1.6*r;
+    const mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2;
+    x.beginPath();x.moveTo(a[0],a[1]);x.lineTo(b[0],b[1]);x.stroke();
+    // arrowhead
+    const dx=b[0]-a[0],dy=b[1]-a[1],L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L;
+    x.beginPath();x.moveTo(mx,my);x.lineTo(mx-ux*9*r-uy*5*r,my-uy*9*r+ux*5*r);x.lineTo(mx-ux*9*r+uy*5*r,my-uy*9*r-ux*5*r);x.closePath();
+    x.fillStyle='rgba(240,232,218,.4)';x.fill();
+  }
+  NEX.forEach((n,i)=>{const[px,py]=pts[i];
+    x.beginPath();x.arc(px,py,30*r,0,7);
+    const grd=x.createRadialGradient(px,py,2,px,py,30*r);grd.addColorStop(0,n.c+'cc');grd.addColorStop(1,n.c+'22');
+    x.fillStyle=grd;x.fill();x.strokeStyle=n.c;x.lineWidth=2*r;x.stroke();
+    x.fillStyle='#0d0b09';x.font=`700 ${12*r}px "Space Mono", monospace`;x.textAlign='center';x.textBaseline='middle';
+    x.fillStyle='#f0e8da';x.fillText(t(n.h),px,py);
+  });
+}
+
+function renderLedger(){
+  const cv=document.getElementById('ledger-canvas');if(!cv)return;
+  const r=devicePixelRatio||1;const W=cv.width=cv.offsetWidth*r;const H=cv.height=380*r;
+  const x=cv.getContext('2d');x.clearRect(0,0,W,H);
+  const padL=54*r,padR=24*r,padT=30*r,padB=46*r;const cw=W-padL-padR,ch=H-padT-padB;
+  const eras=LED.eras[lang];const n=eras.length;
+  // grid
+  x.strokeStyle='rgba(240,232,218,.07)';x.lineWidth=r;
+  for(let i=0;i<=4;i++){const y=padT+ch*i/4;x.beginPath();x.moveTo(padL,y);x.lineTo(W-padR,y);x.stroke();}
+  // x labels
+  x.fillStyle='rgba(168,154,133,.85)';x.font=`${11*r}px "Space Mono", monospace`;x.textAlign='center';
+  eras.forEach((e,i)=>{const px=padL+cw*i/(n-1);x.fillText(e,px,H-padB+22*r);});
+  // y axis hints
+  x.textAlign='right';x.fillStyle='rgba(111,101,87,.9)';
+  x.fillText(lang==='en'?'high':'高',padL-10*r,padT+8*r);x.fillText(lang==='en'?'low':'低',padL-10*r,padT+ch);
+  // lines
+  LED.lines.forEach(ln=>{
+    x.beginPath();ln.v.forEach((val,i)=>{const px=padL+cw*i/(n-1),py=padT+ch*(1-val);i?x.lineTo(px,py):x.moveTo(px,py);});
+    x.strokeStyle=ln.c;x.lineWidth=3*r;x.shadowColor=ln.c;x.shadowBlur=8*r;x.stroke();x.shadowBlur=0;
+    ln.v.forEach((val,i)=>{const px=padL+cw*i/(n-1),py=padT+ch*(1-val);x.beginPath();x.arc(px,py,3.5*r,0,7);x.fillStyle='#f0e8da';x.fill();});
+  });
+  document.getElementById('ledger-legend').innerHTML=LED.lines.map(l=>`<span><i style="background:${l.c}"></i>${t(l.k)}</span>`).join('');
+}
+
+function renderEnd(){
+  document.getElementById('end-grid').innerHTML=END.map(e=>`<div class="epath"><div class="en">${e.en}</div><h3>${t(e.h)}</h3><p>${t(e.p)}</p></div>`).join('');
+}
+
+function renderAll(){renderStatic();renderRev();renderScaler();renderRVF();renderUni();renderFF();renderNexus();renderLedger();renderEnd();}
+
+/* lang toggle */
+document.getElementById('langtog').onclick=()=>{
+  lang=lang==='en'?'zh':'en';
+  document.body.className='lang-'+lang;
+  document.documentElement.lang=lang==='en'?'en':'zh-CN';
+  document.getElementById('langtog').textContent=lang==='en'?'中文':'EN';
+  renderAll();
+};
+
+/* ============ HERO DEEP-TIME CANVAS ============ */
+(function(){
+  const cv=document.getElementById('deeptime'),x=cv.getContext('2d');
+  let W,H,stars,sparks;
+  function rs(){const r=devicePixelRatio||1;W=cv.width=innerWidth*r;H=cv.height=cv.offsetHeight*r;}
+  function init(){
+    stars=[];const n=Math.min(160,Math.floor(W*H/16000));
+    for(let i=0;i<n;i++){const dx=Math.random();stars.push({x:Math.random()*W,y:Math.random()*H,r:(Math.random()*1.4+.3)*(devicePixelRatio||1),tw:Math.random()*Math.PI*2,
+      // warm on left (deep past) → cool on right (future)
+      hue:dx});}
+    sparks=[];
+  }
+  rs();init();addEventListener('resize',()=>{rs();init();});
+  function col(h,a){ // h 0..1 left->right warm->cool
+    if(h<0.5){const k=h/0.5;return `rgba(${216-(216-111)*0+0|0},${168-60*k|0},${80+20*k|0},${a})`;}
+    const k=(h-0.5)/0.5;return `rgba(${(216-(216-111)*k)|0},${(120+50*k)|0},${(90+110*k)|0},${a})`;
+  }
+  function frame(tm){
+    x.clearRect(0,0,W,H);
+    stars.forEach(s=>{const tw=.5+.5*Math.sin(tm*.0012+s.tw);
+      x.beginPath();x.arc(s.x,s.y,s.r*(0.7+tw*0.7),0,7);
+      x.fillStyle=col(s.x/W,0.25+tw*0.5);x.fill();});
+    if(Math.random()<0.04){const sy=Math.random()*H;sparks.push({x:0,y:sy,t:0,sp:(2+Math.random()*3)*(devicePixelRatio||1)});}
+    sparks=sparks.filter(s=>s.x<W);
+    sparks.forEach(s=>{s.x+=s.sp;
+      x.beginPath();x.moveTo(s.x,s.y);x.lineTo(s.x-22*(devicePixelRatio||1),s.y);
+      const grd=x.createLinearGradient(s.x-22,s.y,s.x,s.y);grd.addColorStop(0,'rgba(216,168,80,0)');grd.addColorStop(1,col(s.x/W,.8));
+      x.strokeStyle=grd;x.lineWidth=1.6*(devicePixelRatio||1);x.stroke();});
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+
+/* offset nav below injected Psyverse bar */
+function offsetForBar(){
+  const bar=document.getElementById('ψ-bar')||document.querySelector('[aria-label="Psyverse"]');
+  const nav=document.getElementById('nav');const h=bar?Math.round(bar.getBoundingClientRect().height):0;
+  nav.style.top=h+'px';document.documentElement.style.scrollPaddingTop=(h+70)+'px';
+}
+[300,900,1800].forEach(d=>setTimeout(offsetForBar,d));
+addEventListener('resize',offsetForBar);
+
+/* nav scroll + reveal + resizes */
+addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',scrollY>40);});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+addEventListener('resize',()=>{drawNexus();renderLedger();const s=SCALE[scA];drawDots(s.dots,s.c);});
+
+renderAll();
+</script>
+</body>
+</html>

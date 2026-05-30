@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --night: #14110d;
+  --ochre: #c1652f;   /* cave clay — the primary thread */
+  --oxide: #9c3e26;   /* hand-stencil red — the human mark */
+  --sage: #7a8a4e;    /* domesticated green — agriculture */
+  --dusk: #52708f;    /* lapis — science & the cosmos */
+  --ember: #cda23f;   /* gilded — gods, the apex */
+  --bone: #ece0c8;    /* ivory page — text */
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--night);
+  color: var(--bone);
+}
+
+body {
+  background-color: #14110d;
+  background-image:
+    radial-gradient(ellipse 1340px 760px at 14% -12%, rgba(193, 101, 47, 0.26), transparent 60%),
+    radial-gradient(ellipse 1040px 600px at 90% 0%, rgba(156, 62, 38, 0.20), transparent 62%),
+    radial-gradient(ellipse 1180px 700px at 84% 98%, rgba(82, 112, 143, 0.14), transparent 60%),
+    radial-gradient(ellipse 1320px 760px at 24% 120%, rgba(205, 162, 63, 0.10), transparent 60%);
+  font-family: "Spectral", ui-serif, Georgia, serif;
+  letter-spacing: 0.004em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: rgba(193, 101, 47, 0.42); color: #fff3e2; }
+
+.display {
+  font-family: "Fraunces", ui-serif, Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+}
+.zh {
+  font-family: "Noto Serif SC", serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.label-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.62rem;
+  color: var(--ember);
+}
+.mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+/* accent text treatments */
+.ochre-text { color: #ecb083; text-shadow: 0 0 26px rgba(193,101,47,0.5); }
+.oxide-text { color: #dd9078; text-shadow: 0 0 24px rgba(156,62,38,0.5); }
+.sage-text  { color: #bcc591; text-shadow: 0 0 22px rgba(122,138,78,0.45); }
+.dusk-text  { color: #a3bad2; text-shadow: 0 0 22px rgba(82,112,143,0.5); }
+.ember-text { color: #ebd28f; text-shadow: 0 0 24px rgba(205,162,63,0.55); }
+
+/* cave-wall panel — warm umber, ember-edged */
+.panel {
+  background: linear-gradient(158deg, rgba(53, 42, 28, 0.62), rgba(20, 17, 13, 0.93));
+  border: 1px solid rgba(205, 162, 63, 0.15);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.35s, box-shadow 0.35s, transform 0.35s;
+}
+.panel:hover {
+  border-color: rgba(205, 162, 63, 0.4);
+  box-shadow: 0 0 48px -18px rgba(205, 162, 63, 0.5);
+}
+.panel-oxide {
+  background: linear-gradient(158deg, rgba(126, 47, 28, 0.34), rgba(20, 17, 13, 0.94));
+  border: 1px solid rgba(156, 62, 38, 0.3);
+}
+
+/* aged-page card — light surface for documents/quotes */
+.page-card {
+  background-color: #ece0c8;
+  background-image:
+    radial-gradient(rgba(120, 90, 50, 0.05) 1px, transparent 1px),
+    radial-gradient(ellipse 130% 100% at 50% -8%, #f5eedd, rgba(245, 238, 221, 0) 72%),
+    radial-gradient(ellipse 120% 120% at 50% 110%, #ddcba4, rgba(221, 203, 164, 0) 60%);
+  background-size: 4px 4px, 100% 100%, 100% 100%;
+  color: #2a2014;
+  border: 1px solid rgba(126, 47, 28, 0.22);
+  box-shadow: inset 0 0 60px rgba(170, 130, 70, 0.16), 0 28px 70px -34px rgba(0, 0, 0, 0.9);
+}
+
+/* divider — ochre → ember → dusk (earth to sky) */
+.rule-deeptime {
+  background: linear-gradient(90deg, transparent, rgba(193,101,47,0.75) 14%, rgba(205,162,63,0.6) 50%, rgba(82,112,143,0.5) 86%, transparent);
+}
+
+/* faint strata / sediment backdrop */
+.strata-bg {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(205,162,63,0.04) 0 1px, transparent 1px 64px);
+}
+
+/* a stencil ring */
+.stencil-ring {
+  border: 2px solid rgba(156, 62, 38, 0.7);
+  color: #cd6e54;
+  box-shadow: 0 0 0 1px rgba(156,62,38,0.28), inset 0 0 20px rgba(156,62,38,0.12);
+}
+
+/* animations */
+@keyframes riseIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+.rise-in { animation: riseIn 0.9s cubic-bezier(0.2,0.7,0.2,1) both; }
+.lang-fade { animation: riseIn 0.42s ease both; }
+
+@keyframes flow { to { stroke-dashoffset: -36; } }
+.flow { stroke-dasharray: 4 8; animation: flow 1.6s linear infinite; }
+
+@keyframes drift { 0% { transform: translateY(0); } 50% { transform: translateY(-9px); } 100% { transform: translateY(0); } }
+.drift { animation: drift 7s ease-in-out infinite; }
+
+@keyframes breathe { 0%,100% { transform: scale(1); opacity: 0.82; } 50% { transform: scale(1.045); opacity: 1; } }
+.breathe { animation: breathe 6.5s ease-in-out infinite; transform-origin: center; }
+
+@keyframes spinslow { to { transform: rotate(360deg); } }
+.spin-slow { animation: spinslow 60s linear infinite; transform-origin: center; }
+
+::-webkit-scrollbar { width: 10px; background: #14110d; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #352a1c, #5c4a33); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #a8531f; }

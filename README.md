@@ -1,29 +1,29 @@
-# Sapiens · 人类简史 — An Interactive Companion
+# Sapiens · 人类简史 — From Animals into Gods
 
-A bilingual (English / 中文) interactive companion to Yuval Noah Harari's *Sapiens: A Brief History of Humankind* (《人类简史：从动物到上帝》). It engages and paraphrases the book's central argument — that an insignificant animal conquered the planet through **shared fictions** — and turns it into something you can explore.
+A bilingual (English / 中文) reading companion to Yuval Noah Harari's *Sapiens: A Brief History of Humankind* (《人类简史：从动物到上帝》, trans. 林俊宏, 中信出版社).
 
-It is a transformative analytical reading: original commentary and visualizations only. It is **not** the book and reproduces none of its text.
+Seventy thousand years ago *Homo sapiens* was an unremarkable African ape; today it stands on the verge of godhood. This site retells the book through its four revolutions and one central idea — **shared fiction** — the imagined realities (gods, nations, money, law, companies, human rights) that let millions of strangers cooperate.
 
-Sections:
-- **The Four Revolutions** — a clickable timeline of the Cognitive, Agricultural, Unifying and Scientific revolutions, each with its leap and its hidden cost.
-- **The Power of Fiction** — an interactive "cooperation ceiling" (chimps → gossip → myths → global fictions) and a *Real-or-Imagined?* tap-to-reveal grid.
-- **Three Forces That Merged the World** — money, empire, religion and their paradoxes.
-- **History's Biggest Fraud** — forager vs farmer, side by side.
-- **The Discovery of Ignorance** — the Science–Empire–Capitalism nexus.
-- **The Balance Sheet** — a chart of power soaring while happiness stays flat and other animals' welfare collapses.
-- **The End of Homo Sapiens** — biological engineering, cyborgs, inorganic life.
-- **The Animal That Became a God** — the afterword's warning.
+Every passage, diagram, and accordion switches language live, with no reload.
+
+## Sections
+
+- **The Engine** — the Cognitive Revolution: gossip → fiction → cooperation, and an interactive grid of the fictions we live by
+- **Four Revolutions** — Cognitive · Agricultural · Unification · Scientific — each an expandable panel with thesis, key ideas, and chapters
+- **Imagined Order** — Hammurabi's Code vs. the Declaration of Independence, 3,500 years apart and both imagined
+- **Are we happier?** — the happiness chapter: biochemistry, expectation, meaning, and Buddhism
+- **Animal → God** — the Gilgamesh Project, intelligent design replacing natural selection, and Harari's closing warning
+- **Timeline** — the book's own deep-time timeline, from the Big Bang to the future
 
 ## Links
 
 - **Live:** [sapiens.psyverse.fun](https://sapiens.psyverse.fun)
-- **Vercel:** https://sapiens.vercel.app
 - **GitHub:** [github.com/gewenbo888/sapiens](https://github.com/gewenbo888/sapiens)
 
 ## Stack
 
-Plain HTML / CSS / vanilla JS — single page, no build step. Bilingual via a JS dictionary + language toggle. Bespoke `<canvas>` for the deep-time hero, the cooperation dot-field, the nexus triangle and the balance-sheet chart. Fonts: Cinzel, Fraunces, Spectral, Noto Serif SC.
+Next.js 14 (App Router) · React 18 · TypeScript · Tailwind CSS. Zero runtime visualization dependencies — every diagram is hand-built with inline SVG and CSS. Bilingual via a lightweight React language context. Deep-time "cave-to-cosmos" palette: cave-clay ochre, hand-stencil oxide red, celadon sage, lapis dusk, and gilded ember on warm umber night; Fraunces + Spectral + Noto Serif SC.
 
 ## About
 
-An independent, non-commercial interactive reading, built for the love of the questions the book asks. Part of the [Psyverse](https://psyverse.fun) portfolio by [Gewenbo](https://psyverse.fun).
+An independent, bilingual reading companion to the book — a study aid, not a substitute for it. Quotations are transcribed from the Chinese edition; English renderings follow the published *Sapiens* where possible. Part of the [Psyverse](https://psyverse.fun) portfolio by Gewenbo.
